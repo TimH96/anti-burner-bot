@@ -1,0 +1,16 @@
+{
+  "name": "anti-burner-bot",
+  "version": "1.0.0",
+  "description": "simple bot script to ban twitch accounts under a certain age",
+  "main": "index.ts",
+  "dependencies": {
+    "node-twitch": "^0.4.5",
+    "tmi.js": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TimH96",
+  "license": "MIT"
+}
