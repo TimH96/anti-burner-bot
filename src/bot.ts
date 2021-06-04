@@ -118,4 +118,9 @@ export default class AntiBurnerBot extends tmi.client {
     run (): void {
         this.connect()
     }
+
+    /** stop bot */
+    stop (): void {
+        this.disconnect()
+    }
 }
