@@ -20,6 +20,7 @@ export default class AntiBurnerBot extends tmi.client {
     env: BotEnvironemnt
     twitch_api: TwitchApi
 
+    /** build bot object from config */
     constructor (config: AntiBurnerBotConfig) {
         // create base tmi.client
         super({
@@ -51,6 +52,7 @@ export default class AntiBurnerBot extends tmi.client {
         }
     }
 
+    /** called for every message, main logic */
     private _onMessageHandler (
         channel: string,
         userstate: Object | any,
@@ -86,6 +88,7 @@ export default class AntiBurnerBot extends tmi.client {
             })
     }
 
+    /** handle system messages posted in host channel of bot */
     private _onSystemMessageHandler (
         channel: string,
         userstate: Object,
@@ -95,19 +98,23 @@ export default class AntiBurnerBot extends tmi.client {
         // do on msg in own chat
     }
 
+    /** post status on connection */
     private _onConnectedHandler (address: string, port: number): void {
         // do on connection
     }
 
+    /** log disconnect reason */
     private _onDisconnectionHandler (reason: string): void {
-        // do on disconnection
+        this._onError(reason)
     }
 
+    /** local error handler */
     private _onError (error: any): void {
-       // log error 
+       // TODO log error 
        throw error
     }
 
+    /** run bot */
     run (): void {
         this.connect()
     }
