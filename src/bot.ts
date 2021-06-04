@@ -100,11 +100,12 @@ export default class AntiBurnerBot extends tmi.client {
 
     /** post status on connection */
     private _onConnectedHandler (address: string, port: number): void {
-        // do on connection
+        console.log(`Bot connected to IRC server at ${address}:${port}`)
     }
 
     /** log disconnect reason */
     private _onDisconnectionHandler (reason: string): void {
+        console.log('Bot disconnected from IRC server')
         this._onError(reason)
     }
 
