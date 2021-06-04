@@ -19,6 +19,7 @@ interface BotEnvironemnt {
 export default class AntiBurnerBot extends tmi.client {
     env: BotEnvironemnt
     twitch_api: TwitchApi
+    REJECTION_REASON?: string
 
     /** build bot object from config */
     constructor (config: AntiBurnerBotConfig) {
@@ -34,7 +35,7 @@ export default class AntiBurnerBot extends tmi.client {
         this.env = {
             identity: config.identity,
             channels: {},
-            run_locally: config.run_locally
+            run_locally: config.run_locally,
         }
         for (const c of config.channels) {
             this.env.channels[c.name] = c
@@ -43,6 +44,7 @@ export default class AntiBurnerBot extends tmi.client {
             client_id: config.identity.client_id,
             client_secret: config.identity.client_secret
         })
+        this.REJECTION_REASON = config.rejection_reason
         // connect event callbacks
         this.on('chat', this._onMessageHandler)
         this.on('connected', this._onConnectedHandler)
@@ -77,7 +79,7 @@ export default class AntiBurnerBot extends tmi.client {
                 const dif: number = Math.trunc(Date.now() / 1000) - Math.trunc(Date.parse(data.created_at) / 1000)
                 if (dif < this.env.channels[ch_name].min_age) {
                     // user account not old enough, ban user using inherited method
-                    super.ban(ch_name, usr_name, 'reason: empty for now')
+                    super.ban(ch_name, usr_name, this.REJECTION_REASON === undefined ? '' : this.REJECTION_REASON)
                 } else {
                     // user account is old enough, save it to cache
                     this.env.channels[ch_name].allowed_users.push(usr_name)
