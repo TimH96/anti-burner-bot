@@ -4,8 +4,8 @@
   "description": "Twitch chat bot to ban accounts under a certain age",
   "main": "index.ts",
   "dependencies": {
-    "chalk": "^4.1.1",
     "node-twitch": "^0.4.5",
+    "prompt": "^1.1.0",
     "tmi.js": "^1.8.3",
     "typescript": "^4.3.2"
   },

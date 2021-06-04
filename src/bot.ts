@@ -80,6 +80,7 @@ export default class AntiBurnerBot extends tmi.client {
                 if (dif < this.env.channels[ch_name].min_age) {
                     // user account not old enough, ban user using inherited method
                     super.ban(ch_name, usr_name, this.REJECTION_REASON === undefined ? '' : this.REJECTION_REASON)
+                    console.log(`>> bot banned user ${usr_name}`)
                 } else {
                     // user account is old enough, save it to cache
                     this.env.channels[ch_name].allowed_users.push(usr_name)
@@ -102,12 +103,12 @@ export default class AntiBurnerBot extends tmi.client {
 
     /** post status on connection */
     private _onConnectedHandler (address: string, port: number): void {
-        console.log(`Bot connected to IRC server at ${address}:${port}`)
+        console.log(`>> bot connected to IRC server at ${address}:${port}`)
     }
 
     /** log disconnect reason */
     private _onDisconnectionHandler (reason: string): void {
-        console.log('Bot disconnected from IRC server')
+        console.log('>> bot disconnected from IRC server')
         this._onError(reason)
     }
 
