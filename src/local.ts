@@ -8,7 +8,7 @@
 import AntiBurnerBot from './bot'
 import { AntiBurnerBotConfig } from './types/configs'
 
-let config: AntiBurnerBotConfig = {
+const config: AntiBurnerBotConfig = {
     identity: {
         username: 'oddbod',
         client_id: '5igx8b5i7o9al841l8e6w7a1nsfa23',

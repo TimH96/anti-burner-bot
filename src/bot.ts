@@ -36,7 +36,7 @@ export default class AntiBurnerBot extends tmi.client {
             channels: {},
             run_locally: config.run_locally
         }
-        for (let c of config.channels) {
+        for (const c of config.channels) {
             this.env.channels[c.name] = c
         }
         this.twitch_api = new TwitchApi({
@@ -55,14 +55,14 @@ export default class AntiBurnerBot extends tmi.client {
     /** called for every message, main logic */
     private _onMessageHandler (
         channel: string,
-        userstate: Object | any,
+        userstate: Record<string, unknown> | any,
         message: string,
-        self: Boolean
+        self: boolean
     ): void {
         // do nothing if posted by self or if user is already allowed
         if (self) {return}
-        let ch_name: string = channel.slice(1)
-        let usr_name: string = userstate.username
+        const ch_name: string = channel.slice(1)
+        const usr_name: string = userstate.username
         try {
             if (this.env.channels[ch_name].allowed_users.includes(usr_name)) {
                 return
@@ -73,8 +73,8 @@ export default class AntiBurnerBot extends tmi.client {
         // call twitch API to check for user age
         this.twitch_api.getUsers(usr_name)
             .then((value) => {
-                let data = <any>value.data[0]
-                let dif: number = Math.trunc(Date.now() / 1000) - Math.trunc(Date.parse(data.created_at) / 1000)
+                const data = <any>value.data[0]
+                const dif: number = Math.trunc(Date.now() / 1000) - Math.trunc(Date.parse(data.created_at) / 1000)
                 if (dif < this.env.channels[ch_name].min_age) {
                     // user account not old enough, ban user using inherited method
                     super.ban(ch_name, usr_name, 'reason: empty for now')
@@ -91,9 +91,9 @@ export default class AntiBurnerBot extends tmi.client {
     /** handle system messages posted in host channel of bot */
     private _onSystemMessageHandler (
         channel: string,
-        userstate: Object,
+        userstate: Record<string, unknown>,
         message: string,
-        self: Boolean
+        self: boolean
     ): void {
         // do on msg in own chat
     }
