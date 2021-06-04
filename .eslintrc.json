@@ -1,10 +1,13 @@
 {
+    "root": true,
     "env": {
         "browser": true,
         "es2021": true
     },
     "extends": [
-        "standard"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -14,7 +17,11 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": "off",
-        "camelcase": "off"
-    }
+        "indent": 0,
+        "camelcase": 0,
+        "@typescript-eslint/no-var-requires": 0
+    },
+    "ignorePatterns": [
+        "*.js"
+    ]
 }
