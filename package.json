@@ -1,7 +1,7 @@
 {
   "name": "anti-burner-bot",
   "version": "1.0.0",
-  "description": "simple bot script to ban twitch accounts under a certain age",
+  "description": "Twitch chat bot to ban accounts under a certain age",
   "main": "index.ts",
   "dependencies": {
     "node-twitch": "^0.4.5",
@@ -18,8 +18,16 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0"
   },
+  "keywords": [
+    "twitch",
+    "helix",
+    "bot",
+    "node",
+    "typescript",
+    "anti-harassment"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint ."
   },
   "author": "TimH96",
   "license": "MIT"
