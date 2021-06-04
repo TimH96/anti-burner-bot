@@ -1,12 +1,12 @@
 /**
  * @author TimH96
- * local.ts
+ * @filename local.ts
  * 
  * entrypoint script to run bot on local machine, supposed to be used with own account and channel only
  */
 
 import AntiBurnerBot from './bot'
-import { AntiBurnerBotConfig } from './types/configs'
+import { AntiBurnerBotConfig } from './types/config'
 
 const config: AntiBurnerBotConfig = {
     identity: {

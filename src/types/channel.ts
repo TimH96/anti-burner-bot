@@ -1,6 +1,6 @@
 /**
  * @author TimH96
- * types/channels.ts
+ * @filename types/channel.ts
  * 
  * types for channels and related metadata for bot
  */

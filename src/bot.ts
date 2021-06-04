@@ -1,11 +1,11 @@
 /**
  * @author TimH96
- * bot.ts
+ * @filename bot.ts
  */
 
 import TwitchApi from 'node-twitch'
-import { Channel, ChannelTable } from './types/channels'
-import { AntiBurnerBotConfig, Identity } from './types/configs'
+import { Channel, ChannelTable } from './types/channel'
+import { AntiBurnerBotConfig, Identity } from './types/config'
 const tmi = require('tmi.js')
 
 /** Runtime environment fields for bot, extracted into interface to not collide with tmi.client fields */

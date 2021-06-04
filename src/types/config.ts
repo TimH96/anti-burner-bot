@@ -1,11 +1,11 @@
 /**
  * @author TimH96
- * types/config.ts
+ * @filename types/config.ts
  * 
  * types for config of bot
  */
 
-import { Channel } from './channels'
+import { Channel } from './channel'
 
 /** User identity of bot */
 export interface Identity{
