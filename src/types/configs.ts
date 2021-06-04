@@ -1,3 +1,10 @@
+/**
+ * @author TimH96
+ * types/config.ts
+ * 
+ * types for config of bot
+ */
+
 import { Channel } from './channels'
 
 /** User identity of bot */

@@ -4,14 +4,9 @@
  */
 
 import TwitchApi from 'node-twitch'
-import { Channel } from './types/channels'
+import { Channel, ChannelTable } from './types/channels'
 import { AntiBurnerBotConfig, Identity } from './types/configs'
 const tmi = require('tmi.js')
-
-/** Hashtable for all channels */
-interface ChannelTable<Channel> {
-    [key: string]: Channel
-}
 
 /** Runtime environment fields for bot, extracted into interface to not collide with tmi.client fields */
 interface BotEnvironemnt {
