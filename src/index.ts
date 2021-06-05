@@ -8,7 +8,7 @@
 import { sys } from 'typescript'
 import AntiBurnerBot from './bot'
 import { AntiBurnerBotConfig } from './types/config'
-import { writeFileSync } from 'fs'
+import { writeFileSync, readFileSync } from 'fs'
 const prompt = require('prompt')
 
 /** terminal prompt for bot commands */
@@ -102,9 +102,9 @@ let config: AntiBurnerBotConfig
 prompt.start()
 try {
     try {    
-        config = require('./config.json')
+        config = JSON.parse(readFileSync('./config.json', 'utf8'))
     } catch (error) {
-        config = require(sys.args[0])
+        config = JSON.parse(readFileSync(sys.args[0], 'utf8'))
     }
         console.log('Found config.json')
         startLaunchTerminal()
