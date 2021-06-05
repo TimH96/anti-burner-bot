@@ -31,7 +31,7 @@
     "build": "tsc -p ./src",
     "watch": "npm run build -- -w",
     "lint": "npx eslint ./src",
-    "package": "pkg .\\dist\\index.js --out-path ./dist"
+    "package": "pkg .\\dist\\index.js --out-path ./dist/pkg"
   },
   "author": "TimH96",
   "license": "MIT"
