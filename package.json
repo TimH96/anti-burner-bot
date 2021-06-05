@@ -30,7 +30,8 @@
   "scripts": {
     "build": "tsc -p ./src",
     "watch": "npm run build -- -w",
-    "lint": "npx eslint ./src"
+    "lint": "npx eslint ./src",
+    "package": "pkg .\\dist\\index.js --out-path ./dist"
   },
   "author": "TimH96",
   "license": "MIT"
