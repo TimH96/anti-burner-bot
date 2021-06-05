@@ -69,7 +69,7 @@ function startConfigTerminal(): void {
                     channels: [
                         {
                             name: result.username,
-                            min_age: result.minimum_age,
+                            min_age: parseInt(result.minimum_age),
                             allowed_users: []
                         }
                     ],
