@@ -16,7 +16,7 @@ $ npm run build
 $ node ./dist/index.js
 ```
 
-#### Configue
+#### Configure
 
 It is recommended to keep the executable in it's own folder, as it will write a ``config.json`` file that it depends on. The bot will prompt you to create this ``config.json`` upon running it for the first time. Here are details on what exactly needs to be put in:
 
