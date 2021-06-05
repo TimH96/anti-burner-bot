@@ -114,8 +114,7 @@ export default class AntiBurnerBot extends tmi.client {
 
     /** local error handler */
     private _onError (error: any): void {
-       // TODO log error 
-       throw error
+       console.log(`>> there was an error: ${error}`)
     }
 
     /** run bot */
