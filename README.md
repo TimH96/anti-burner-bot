@@ -24,6 +24,7 @@ It is recommended to keep the executable in it's own folder, as it will write a 
 + **client_id** and **client_secret** are required to use the Twitch API. You can get both from [this website](https://dev.twitch.tv/console/apps/create). Create an application (you can just use ``http://localhost`` for the Redirect URL, everything else should be self explanatory) and then browse to it from the overview page. At the bottom of the page, you can find the client ID and generate a new client secret.
 + **oauth** is required for the bot to log in to the chat on your behalf. You can generate a token on [this website](https://twitchapps.com/tmi/). The site will generate a string that looks like ``oauth:<token>``, make sure to only input the actual token into the bot, so only whatever is after the ``oauth:``.
 + **minimum_age** is the age an account needs to be to not be banned. It needs to be put in seconds, for instance input ``86400`` for 1 day or ``21600`` for 6 hours.
++ **ban_reason** is the reason the banned user will receive. This is optional.
 
 #### Run
 

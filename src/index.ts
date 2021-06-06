@@ -43,7 +43,7 @@ function startConfigTerminal(): void {
     console.log('You will be prompted to configure the bot now, please refer to the README.md for specifics on the required information.')
     prompt.start();
     prompt.get(
-        ['username', 'client_id', 'client_secret', 'oauth', 'minimum_age'],
+        ['username', 'client_id', 'client_secret', 'oauth', 'minimum_age', 'ban_reason'],
         (error: Error, result: Record<string, any>) => {
             if (error) {
                 console.log('There was an error with your input.')
@@ -70,6 +70,7 @@ function startConfigTerminal(): void {
                         {
                             name: result.username,
                             min_age: parseInt(result.minimum_age),
+                            ban_reason: result.ban_reason,
                             allowed_users: []
                         }
                     ],

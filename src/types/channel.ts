@@ -11,6 +11,7 @@ export interface Channel {
     name: string
     min_age: number
     allowed_users: Array<string>
+    ban_reason?: string
 }
 
 /** Hashtable for all channels */

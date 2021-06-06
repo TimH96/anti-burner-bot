@@ -20,5 +20,4 @@ export interface AntiBurnerBotConfig {
 	identity: Identity
 	channels: Array<Channel>
     run_locally: boolean
-    rejection_reason?: string
 }

@@ -19,7 +19,6 @@ interface BotEnvironemnt {
 export default class AntiBurnerBot extends tmi.client {
     env: BotEnvironemnt
     twitch_api: TwitchApi
-    REJECTION_REASON?: string
 
     /** build bot object from config */
     constructor (config: AntiBurnerBotConfig) {
@@ -44,7 +43,6 @@ export default class AntiBurnerBot extends tmi.client {
             client_id: config.identity.client_id,
             client_secret: config.identity.client_secret
         })
-        this.REJECTION_REASON = config.rejection_reason
         // connect event callbacks
         this.on('chat', this._onMessageHandler)
         this.on('connected', this._onConnectedHandler)
@@ -65,8 +63,9 @@ export default class AntiBurnerBot extends tmi.client {
         if (self) {return}
         const ch_name: string = channel.slice(1)
         const usr_name: string = userstate.username
+        const this_channel: Channel = this.env.channels[ch_name]
         try {
-            if (this.env.channels[ch_name].allowed_users.includes(usr_name)) {
+            if (this_channel.allowed_users.includes(usr_name)) {
                 return
             }
         } catch (e) {
@@ -77,13 +76,13 @@ export default class AntiBurnerBot extends tmi.client {
             .then((value) => {
                 const data = <any>value.data[0]
                 const dif: number = Math.trunc(Date.now() / 1000) - Math.trunc(Date.parse(data.created_at) / 1000)
-                if (dif < this.env.channels[ch_name].min_age) {
+                if (dif < this_channel.min_age) {
                     // user account not old enough, ban user using inherited method
-                    super.ban(ch_name, usr_name, this.REJECTION_REASON === undefined ? '' : this.REJECTION_REASON)
+                    super.ban(ch_name, usr_name, this_channel.ban_reason === undefined ? '' : this_channel.ban_reason)
                     console.log(`>> bot banned user ${usr_name}`)
                 } else {
                     // user account is old enough, save it to cache
-                    this.env.channels[ch_name].allowed_users.push(usr_name)
+                    this_channel.allowed_users.push(usr_name)
                 }
             })
             .catch((reason) => {
