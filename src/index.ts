@@ -41,7 +41,7 @@ function startLaunchTerminal(): void {
 /** terminal prompt for configuration */
 function startConfigTerminal(): void {
     console.log('You will be prompted to configure the bot now, please refer to the README.md for specifics on the required information.')
-    prompt.start();
+    prompt.start()
     prompt.get(
         ['username', 'client_id', 'client_secret', 'oauth', 'minimum_age', 'ban_reason'],
         (error: Error, result: Record<string, any>) => {
