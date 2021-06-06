@@ -4,7 +4,7 @@ This is a lightweight Twitch bot that automatically bans burner accounts (freshl
 
 #### Install
 
-You can download one of the packaged directories from the release page. Just unpack that and run the executable inside.
+You can download one of the packaged executables from the [releases page](https://github.com/TimH96/anti-burner-bot/releases) and just run that.
 
 Alternatively you can also clone and build the project yourself:
 
