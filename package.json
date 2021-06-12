@@ -28,7 +28,7 @@
     "anti-harassment"
   ],
   "scripts": {
-    "build": "tsc -p ./src",
+    "build": "tsc -p tsconfig.json",
     "watch": "npm run build -- -w",
     "lint": "npx eslint ./src",
     "package": "pkg .\\dist\\index.js --out-path ./dist/pkg"
